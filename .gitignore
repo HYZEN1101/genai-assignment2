@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+# large artifacts live on Hugging Face Hub / Drive, never in git
+*.safetensors
+*.bin
+*.pt
+*.gguf
+.env
+.DS_Store
+report/*.aux
+report/*.log
+report/*.out
