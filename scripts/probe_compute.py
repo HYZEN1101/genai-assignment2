@@ -109,7 +109,7 @@ def try_model(name: str, new_tokens: int = 20) -> dict:
     try:
         t0 = time.time()
         tok = AutoTokenizer.from_pretrained(name)
-        model = AutoModelForCausalLM.from_pretrained(name, torch_dtype=dtype).to(dev).eval()
+        model = AutoModelForCausalLM.from_pretrained(name, dtype=dtype).to(dev).eval()
         res["load_s"] = round(time.time() - t0, 1)
         res["params_m"] = round(sum(p.numel() for p in model.parameters()) / 1e6, 1)
         c = model.config
@@ -121,7 +121,8 @@ def try_model(name: str, new_tokens: int = 20) -> dict:
         }
         res["vocab_len_tokenizer"] = len(tok)
         msgs = [{"role": "user", "content": "Say hello in one short sentence."}]
-        ids = tok.apply_chat_template(msgs, add_generation_prompt=True, return_tensors="pt").to(dev)
+        text = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+        ids = tok(text, return_tensors="pt").input_ids.to(dev)
         if dev == "cuda":
             torch.cuda.reset_peak_memory_stats()
             torch.cuda.synchronize()

@@ -19,7 +19,7 @@ FLASH_ATTENTION unsupported (needs sm80+), CUDNN_ATTENTION unsupported. Laptop: 
 | head_dim | 64 (M) | 128 (M) | 128 (derived 2048/16) | TBD | TBD | 256 (S, one source) |
 | Context | 32,768 (M) | 32,768 (M) | 32,768 (S) | 32,768 (S) | 128k (S) | 8,192 (S) |
 | Vocab (config) | 151,936 (M) | 151,936 (M) | 151,936 (S) | TBD | TBD | 256,128 (S, one source; verify) |
-| License | TBD: verify | TBD: verify | Qwen Research, non-commercial (S) | Apache-2.0 (S) | Llama 3.2 Community License, gated (S) | Gemma terms of use, gated (S) |
+| License | TBD: verify | Apache-2.0 (S: secondary sources; check official LICENSE) | Qwen Research, non-commercial (S) | Apache-2.0 (S) | Llama 3.2 Community License, gated (S) | Gemma terms of use, gated (S) |
 
 ## Memory math (formulas; fp16 = 2 B/param, fp32 = 4 B/param)
 KV bytes/token = 2 (K and V) x layers x kv_heads x head_dim x 2 B.

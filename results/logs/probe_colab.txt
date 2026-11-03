@@ -19,7 +19,7 @@ gpu_capability: [7, 5]
 gpu_count: 1
 bf16_supported: True
 cuda_version: 13.0
-Tue Nov  3 10:57:14 2026       
+Tue Nov  3 11:24:26 2026       
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
 +-----------------------------------------+------------------------+----------------------+
@@ -28,7 +28,7 @@ Tue Nov  3 10:57:14 2026
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
 |   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
-| N/A   59C    P0             29W /   70W |     107MiB /  15360MiB |      4%      Default |
+| N/A   45C    P0             27W /   70W |     107MiB /  15360MiB |      0%      Default |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 
@@ -37,7 +37,7 @@ Tue Nov  3 10:57:14 2026
 |  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
 |        ID   ID                                                               Usage      |
 |=========================================================================================|
-|    0   N/A  N/A             949      C   python3                                 104MiB |
+|    0   N/A  N/A            8018      C   python3                                 104MiB |
 +-----------------------------------------------------------------------------------------+
 
 == SDPA BACKENDS ==
@@ -50,7 +50,7 @@ CUDNN_ATTENTION: unsupported: No available kernel. Aborting execution.
 {
   "model": "Qwen/Qwen2.5-0.5B-Instruct",
   "dtype": "torch.float16",
-  "load_s": 11.3,
+  "load_s": 5.2,
   "params_m": 494.0,
   "config": {
     "layers": 24,
@@ -62,13 +62,17 @@ CUDNN_ATTENTION: unsupported: No available kernel. Aborting execution.
     "vocab": 151936
   },
   "vocab_len_tokenizer": 151665,
-  "ok": false,
-  "error": "AttributeError()"
+  "peak_gpu_mem_gb": 1.01,
+  "gen_tokens": 10,
+  "gen_s": 0.86,
+  "tok_per_s": 11.6,
+  "sample_output": "Hello! How can I assist you today?",
+  "ok": true
 }
 {
   "model": "Qwen/Qwen2.5-1.5B-Instruct",
   "dtype": "torch.float16",
-  "load_s": 36.1,
+  "load_s": 10.7,
   "params_m": 1543.7,
   "config": {
     "layers": 28,
@@ -80,6 +84,10 @@ CUDNN_ATTENTION: unsupported: No available kernel. Aborting execution.
     "vocab": 151936
   },
   "vocab_len_tokenizer": 151665,
-  "ok": false,
-  "error": "AttributeError()"
+  "peak_gpu_mem_gb": 3.1,
+  "gen_tokens": 10,
+  "gen_s": 0.42,
+  "tok_per_s": 23.9,
+  "sample_output": "Hello! How can I assist you today?",
+  "ok": true
 }
