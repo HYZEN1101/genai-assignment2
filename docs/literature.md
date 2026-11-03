@@ -1,19 +1,20 @@
 # Literature table
-Status: VERIFIED-SEARCH = the bibliographic record was found by web search on 3 Nov 2026. UNVERIFIED = ID/URL from memory,
-YOU must open it and confirm title/authors/venue before it goes into refs.bib. URL TBD = not located yet; do not invent.
+Status VERIFIED-SEARCH = the record was found by web search on 3 Nov 2026 (title, authors, ID, venue as shown there).
+Open each URL yourself before it goes into refs.bib; venue/page details below are from the pages I saw.
 
 | # | Citation | URL | Status | Contribution | Limitation | Used here |
 |---|---|---|---|---|---|---|
-| 1 | Jin et al., Matching patients to clinical trials with large language models, Nat. Commun. 15:9074 (2024) | https://arxiv.org/abs/2307.15051 ; doi 10.1038/s41467-024-53081-z | VERIFIED-SEARCH | TrialGPT: criterion-level eligibility + evidence sentences + explanation, trial-level aggregation | GPT-4 based, closed model; we cannot reuse its predictions | task definition, dataset origin, aggregation idea |
-| 2 | Milakov & Gimelshein, Online normalizer calculation for softmax (2018) | https://arxiv.org/abs/1805.02867 | VERIFIED-SEARCH | single-pass running max + normalizer with rescaling | softmax only; attention form comes from FlashAttention | tiled attention (Phase 4) |
-| 3 | Leviathan, Kalman, Matias, Fast Inference from Transformers via Speculative Decoding, ICML 2023 (PMLR 202:19274-19286) | https://arxiv.org/abs/2211.17192 | VERIFIED-SEARCH | draft+verify, outputs unchanged | speedup depends on acceptance and cost ratio | Phase 6 |
-| 4 | Chen et al., Accelerating LLM Decoding with Speculative Sampling (2023) | https://arxiv.org/abs/2302.01318 | UNVERIFIED | concurrent speculative sampling work | same | Phase 6 related work |
-| 5 | Dao et al., FlashAttention (2022) | https://arxiv.org/abs/2205.14135 | UNVERIFIED | IO-aware tiled exact attention | needs fused kernels; PyTorch tiling cannot match | Phase 4 |
-| 6 | Hu et al., LoRA (2021) | https://arxiv.org/abs/2106.09685 | UNVERIFIED | low-rank adapters W + (alpha/r)BA | rank/target choice matters | Phase 2 |
-| 7 | Dettmers et al., QLoRA (2023) | https://arxiv.org/abs/2305.14314 | UNVERIFIED | 4-bit base + LoRA | not needed at 1.5B | considered, rejected |
-| 8 | Vaswani et al., Attention Is All You Need (2017) | https://arxiv.org/abs/1706.03762 | UNVERIFIED | scaled dot-product attention | quadratic cost | Phase 4 reference |
-| 9 | Ainslie et al., GQA (2023) | https://arxiv.org/abs/2305.13245 | UNVERIFIED | grouped-query attention shrinks KV cache | | Phase 5 cache size |
-| 10 | Su et al., RoFormer / RoPE (2021) | https://arxiv.org/abs/2104.09864 | UNVERIFIED | rotary position embedding | position offsets must be handled in cached decoding | Phase 5 |
-| 11 | Qwen Team, Qwen2.5 Technical Report (2024) | arXiv ID TBD (check: model pages seen cite the Qwen2 report arXiv:2407.10671) | UNVERIFIED | model family description | | model choice |
-| 12 | Hugging Face transformers docs: KV cache / cache classes | URL TBD | NOT LOCATED | cache API reference | API changed in v5 (installed 5.22.0) | Phase 5/6 |
-| 13 | PyTorch docs: scaled_dot_product_attention, torch.nn.attention.sdpa_kernel | URL TBD | NOT LOCATED | backend selection | | Phase 4 |
+| 1 | Jin et al., Matching patients to clinical trials with large language models, Nat. Commun. 15:9074 (2024) | https://arxiv.org/abs/2307.15051 ; doi 10.1038/s41467-024-53081-z | VERIFIED-SEARCH | TrialGPT: criterion-level eligibility, evidence sentence locations, explanations, trial-level aggregation | GPT-4 based, so its predictions cannot be reused | task definition, dataset origin, aggregation idea |
+| 2 | Milakov & Gimelshein, Online normalizer calculation for softmax (2018) | https://arxiv.org/abs/1805.02867 | VERIFIED-SEARCH | single-pass running max and normalizer with rescaling | softmax only; attention form is in FlashAttention | tiled attention (Phase 4) |
+| 3 | Leviathan, Kalman, Matias, Fast Inference from Transformers via Speculative Decoding, ICML 2023, PMLR 202:19274-19286 | https://arxiv.org/abs/2211.17192 | VERIFIED-SEARCH | draft+verify, outputs unchanged | speedup depends on acceptance rate and cost ratio | Phase 6 |
+| 4 | Chen, Borgeaud, Irving, Lespiau, Sifre, Jumper, Accelerating LLM Decoding with Speculative Sampling (2023, arXiv preprint) | https://arxiv.org/abs/2302.01318 | VERIFIED-SEARCH | concurrent speculative sampling (DeepMind) | tested on Chinchilla 70B, distributed setting | Phase 6 related work |
+| 5 | Dao, Fu, Ermon, Rudra, Re, FlashAttention, NeurIPS 2022 (vol. 35) | https://arxiv.org/abs/2205.14135 | VERIFIED-SEARCH | IO-aware tiled exact attention | needs a fused CUDA kernel; PyTorch tiling cannot match it | Phase 4 |
+| 6 | Hu et al., LoRA: Low-Rank Adaptation of LLMs (2021; bibkey hu2022lora suggests ICLR 2022, venue not seen directly) | https://arxiv.org/abs/2106.09685 | VERIFIED-SEARCH | frozen weights + trainable low-rank BA, scaled alpha/r | rank and target modules matter | Phase 2 |
+| 7 | Dettmers et al., QLoRA, NeurIPS 2023 (vol. 36) | https://arxiv.org/abs/2305.14314 | VERIFIED-SEARCH | 4-bit NF4 base + LoRA | not needed at 1.5B on a 15 GB T4 | considered, rejected |
+| 8 | Vaswani et al., Attention Is All You Need, NIPS 2017 (vol. 30), pp. 5998-6008 | https://arxiv.org/abs/1706.03762 | VERIFIED-SEARCH | scaled dot-product attention, Transformer | quadratic in sequence length | Phase 4 reference attention |
+| 9 | Ainslie et al., GQA, EMNLP 2023, pp. 4895-4901, doi 10.18653/v1/2023.emnlp-main.298 | https://arxiv.org/abs/2305.13245 | VERIFIED-SEARCH | grouped-query attention, fewer KV heads | quality/speed trade-off | Phase 5 KV size |
+| 10 | Su et al., RoFormer: Enhanced Transformer with Rotary Position Embedding (2021) | https://arxiv.org/abs/2104.09864 | VERIFIED-SEARCH | rotary position embedding | cached decoding must pass the right absolute position | Phase 5 |
+| 11 | Qwen Team, Qwen2.5 Technical Report (2024) | https://arxiv.org/abs/2412.15115 | VERIFIED-SEARCH | model family, tokenizer (151,643 regular + 22 control tokens), per-size table incl. licenses | | model choice |
+| 12 | Yang et al., Qwen2 Technical Report (2024); cited on the official Qwen2.5-0.5B-Instruct card | https://arxiv.org/abs/2407.10671 | VERIFIED-CARD | architecture basis (cited by the model card) | | model choice |
+| 13 | Hugging Face transformers docs, KV cache strategies (DynamicCache default; sliding-window models cap cache at the window) | https://huggingface.co/docs/transformers/kv_cache | VERIFIED-SEARCH | cache classes and behaviour | API changed in v5 (installed 5.22.0): inspect real source before Phase 5/6 | Phase 5/6 |
+| 14 | PyTorch docs: scaled_dot_product_attention and sdpa_kernel | https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention ; https://docs.pytorch.org/docs/stable/generated/torch.nn.attention.sdpa_kernel.html | VERIFIED-SEARCH | backend selection; is_causal is upper-left aligned for non-square masks; math backend keeps float32 intermediates for half inputs | beta API | Phase 4 |

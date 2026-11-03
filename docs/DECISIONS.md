@@ -26,3 +26,12 @@ Probe bug found and fixed. Before Phase 5/6, inspect the installed Cache API (cr
 
 ## D6 SDPA backends on T4
 MATH and EFFICIENT_ATTENTION work; FLASH and CUDNN unsupported (sm75 < sm80). Phase 4 backend table will report this.
+
+## D7 Causal-mask alignment (PyTorch SDPA docs)
+For non-square (Lq != Lk) masks, is_causal=True in F.scaled_dot_product_attention is UPPER-LEFT aligned. Cached decoding needs
+BOTTOM-RIGHT alignment (offset Lk - Lq). In Phase 4/5 tests, compare against SDPA with an explicit boolean mask, never is_causal=True when Lq != Lk.
+Source: PyTorch docs (see docs/literature.md row 14).
+
+## D3 addendum
+Hugging Face KV-cache docs: for sliding-window models (Mistral, Gemma2) the cache never exceeds the window on those layers. This supports rejecting Gemma-2
+for a hand-written cache. Qwen2.5 report table lists the 3B as Qwen Research (confirms the license concern).

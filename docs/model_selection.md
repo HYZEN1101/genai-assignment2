@@ -19,7 +19,7 @@ FLASH_ATTENTION unsupported (needs sm80+), CUDNN_ATTENTION unsupported. Laptop: 
 | head_dim | 64 (M) | 128 (M) | 128 (derived 2048/16) | TBD | TBD | 256 (S, one source) |
 | Context | 32,768 (M) | 32,768 (M) | 32,768 (S) | 32,768 (S) | 128k (S) | 8,192 (S) |
 | Vocab (config) | 151,936 (M) | 151,936 (M) | 151,936 (S) | TBD | TBD | 256,128 (S, one source; verify) |
-| License | TBD: verify | Apache-2.0 (S: secondary sources; check official LICENSE) | Qwen Research, non-commercial (S) | Apache-2.0 (S) | Llama 3.2 Community License, gated (S) | Gemma terms of use, gated (S) |
+| License | Apache-2.0 (official card header, checked 3 Nov) | Apache-2.0 (S: secondary sources; confirm on official card) | Qwen Research, non-commercial (S) | Apache-2.0 (S) | Llama 3.2 Community License, gated (S) | Gemma terms of use, gated (S) |
 
 ## Memory math (formulas; fp16 = 2 B/param, fp32 = 4 B/param)
 KV bytes/token = 2 (K and V) x layers x kv_heads x head_dim x 2 B.
@@ -38,7 +38,7 @@ LoRA fine-tune memory on T4: not measured yet (TBD in Phase 2). Expect weights 3
 Target = Qwen2.5-1.5B-Instruct, draft = Qwen2.5-0.5B-Instruct.
 - Fits the T4 comfortably (3.1 GB fp16) and the laptop CPU in fp32 (6.2 GB).
 - Only 2 KV heads: small cache, simple to implement and reason about (viva).
-- Same family: identical config vocab (151,936) and identical tokenizer length (151,665, M); full tokenizer equality check is a Phase 6 test.
+- Same family: identical config vocab (151,936) and identical tokenizer length (151,665, M); full tokenizer equality check is a Phase 6 test. The Qwen2.5 report states 151,643 regular + 22 control tokens = 151,665, matching the measured length.
 - Plain full-attention decoder: explicit KV cache, tiled attention and speculative rollback are straightforward.
-- License still to be verified on the official cards before the report claims it.
+- Licenses: 0.5B Apache-2.0 confirmed on its official card; 1.5B Apache-2.0 per secondary sources (confirm on official card); 3B Qwen Research per the Qwen2.5 report table.
 Rejected: see docs/DECISIONS.md.
