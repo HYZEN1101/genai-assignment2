@@ -1,0 +1,5 @@
+# Data pipeline config (Phase 1, FINAL). Chosen from results/tables/token_stats.csv:
+# longest prompt = 629 tokens (train), longest target = 38 -> 1024 truncates nothing and keeps training memory low.
+model_id: Qwen/Qwen2.5-1.5B-Instruct   # tokenizer shared with the 0.5B draft (identical vocab, measured in P0)
+max_len: 1024                          # prompt + target + EOS must fit
+reserve_tokens: 96                     # kept free for target JSON, EOS and the "sentences omitted" note

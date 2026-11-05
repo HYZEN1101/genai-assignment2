@@ -1,0 +1,11 @@
+{
+  "train": [
+    {
+      "annotation_id": 883,
+      "patient_id": "sigir-201519",
+      "reason": "empty_criterion_text"
+    }
+  ],
+  "val": [],
+  "test": []
+}

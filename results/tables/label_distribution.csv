@@ -1,0 +1,30 @@
+split,criterion_type,label,n
+test,exclusion,__empty_gold_evidence__,115
+test,exclusion,not applicable,12
+test,exclusion,not enough information,28
+test,exclusion,not excluded,91
+test,inclusion,__empty_gold_evidence__,30
+test,inclusion,included,27
+test,inclusion,not applicable,3
+test,inclusion,not enough information,38
+test,inclusion,not included,7
+train,exclusion,__empty_gold_evidence__,281
+train,exclusion,excluded,8
+train,exclusion,not applicable,23
+train,exclusion,not enough information,65
+train,exclusion,not excluded,291
+train,inclusion,__empty_gold_evidence__,67
+train,inclusion,included,88
+train,inclusion,not applicable,5
+train,inclusion,not enough information,109
+train,inclusion,not included,13
+val,exclusion,__empty_gold_evidence__,100
+val,exclusion,excluded,2
+val,exclusion,not applicable,11
+val,exclusion,not enough information,26
+val,exclusion,not excluded,101
+val,inclusion,__empty_gold_evidence__,16
+val,inclusion,included,35
+val,inclusion,not applicable,1
+val,inclusion,not enough information,27
+val,inclusion,not included,3

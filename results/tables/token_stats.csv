@@ -1,0 +1,4 @@
+split,n,prompt_p50,prompt_p95,prompt_p99,prompt_max,target_max,target_mean,over_512,gold_cut_naive_512,over_768,gold_cut_naive_768,over_1024,gold_cut_naive_1024,over_1536,gold_cut_naive_1536,over_2048,gold_cut_naive_2048
+train,602,322.0,519.9,566.0,629,38,15.4,73,15,0,0,0,0,0,0,0,0
+val,206,364.0,411.8,436.6,468,25,14.9,8,1,0,0,0,0,0,0,0,0
+test,206,321.5,395.8,426.8,533,28,15.0,5,1,0,0,0,0,0,0,0,0
