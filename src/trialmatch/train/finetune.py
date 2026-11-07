@@ -205,6 +205,15 @@ def train(cfg: dict[str, Any], tok=None, model=None) -> dict:
         scaler.load_state_dict(st["scaler"])
         step, best_val, best_step, elapsed_prev = st["step"], st["best_val"], st["best_step"], st["elapsed"]
         print(f"[resume] step {step}/{total_steps} best_val {best_val:.4f}@{best_step}")
+        if step >= total_steps and (out_dir / "summary.json").exists():
+            # Re-running a finished run (e.g. after a Colab disconnect) must not retrain or overwrite its summary.
+            print(f"[done-already] run {cfg.get('run_name')} finished at step {step}; nothing to train.")
+            summary = json.loads((out_dir / "summary.json").read_text())
+            repo_logs = Path(cfg.get("repo_logs_dir", "results/logs"))
+            repo_logs.mkdir(parents=True, exist_ok=True)
+            shutil.copy(out_dir / "train_log.csv", repo_logs / f"train_{summary['run']}.csv")
+            (repo_logs / f"summary_{summary['run']}.json").write_text(json.dumps(summary, indent=2))
+            return summary
 
     log_path = out_dir / "train_log.csv"
     cols = ["step", "epoch", "train_loss", "val_loss", "lr", "grad_norm", "elapsed_s", "peak_mem_gb"]

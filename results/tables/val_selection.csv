@@ -1,3 +1,9 @@
 tag,adapter,n,valid_rate,accuracy,macro_f1,inclusion_macro_f1,exclusion_macro_f1,evidence_micro_f1_nonempty_gold,hit_max_rate
 A_best,/content/drive/MyDrive/genai_a2/runs/A/best,206,1.0000,0.7427,0.4335,0.3819,0.3304,0.6273,0.0000
+A_ep3,/content/drive/MyDrive/genai_a2/runs/A/epoch_3,206,1.0000,0.7476,0.4438,0.3825,0.3464,0.6359,0.0000
+B_best,/content/drive/MyDrive/genai_a2/runs/B/best,206,1.0000,0.7184,0.3457,0.3645,0.2095,0.6047,0.0000
+B_ep3,/content/drive/MyDrive/genai_a2/runs/B/epoch_3,206,1.0000,0.7282,0.3573,0.3819,0.2095,0.6147,0.0000
+C_best,/content/drive/MyDrive/genai_a2/runs/C/best,206,1.0000,0.7233,0.3506,0.3730,0.2095,0.6167,0.0000
+C_ep3,/content/drive/MyDrive/genai_a2/runs/C/epoch_3,206,1.0000,0.7670,0.5683,0.3850,0.5906,0.6306,0.0000
+C_ep5,/content/drive/MyDrive/genai_a2/runs/C/epoch_5,206,1.0000,0.7718,0.5708,0.3932,0.6011,0.6190,0.0000
 val_base,base,206,0.9951,0.1068,0.1307,0.1050,0.1082,0.2047,0.0000

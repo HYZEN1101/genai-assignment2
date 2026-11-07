@@ -101,3 +101,13 @@ def test_resume_continues_step_counter(setup):
     s = ft.train(cfg, tok=tok, model=make_model(len(tok)))
     steps = [int(l.split(",")[0]) for l in (tmp / "run" / "train_log.csv").read_text().strip().splitlines()[1:]]
     assert steps == [1, 2, 3, 4] and s["steps"] == 4
+
+
+def test_finished_run_is_not_retrained_or_overwritten(setup):
+    """Re-running a completed run (Colab disconnect + rerun) must return the stored summary and leave the log untouched."""
+    recs, tok, tmp = setup
+    cfg = _cfg(tmp)
+    s1 = ft.train(cfg, tok=tok, model=make_model(len(tok)))
+    log1 = (tmp / "run" / "train_log.csv").read_text()
+    s2 = ft.train(cfg, tok=tok, model=make_model(len(tok)))
+    assert s2 == s1 and (tmp / "run" / "train_log.csv").read_text() == log1

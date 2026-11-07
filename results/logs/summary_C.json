@@ -18,10 +18,10 @@
   "n_val": 206,
   "trainable_params": 18464768,
   "total_params": 1562179072,
-  "best_val_loss": 0.11835966141552434,
+  "best_val_loss": 0.11836,
   "best_step": 76,
-  "last_val_loss": NaN,
-  "train_seconds": 1405.530657529831,
-  "peak_mem_gb": 3.309924352,
+  "last_val_loss": 0.14371,
+  "train_seconds": 1405.5,
+  "peak_mem_gb": 4.26,
   "torch": "2.14.1+cu130"
 }

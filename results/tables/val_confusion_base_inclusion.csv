@@ -1,0 +1,5 @@
+gold \ pred,included,not included,not enough information,not applicable,<invalid>
+included,9,1,0,25,0
+not included,1,0,0,2,0
+not enough information,2,0,0,25,0
+not applicable,0,0,0,1,0

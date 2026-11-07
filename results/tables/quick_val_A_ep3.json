@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "tag": "A_ep3",
+    "split": "val",
+    "n": 206,
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "mode": "ft",
+    "adapter": "/content/drive/MyDrive/genai_a2/runs/A/epoch_3",
+    "decoding": {
+      "strategy": "greedy",
+      "max_new_tokens": 64,
+      "repetition_penalty": 1.0,
+      "batch_size": 8,
+      "padding": "left",
+      "eos": "<|im_end|>"
+    },
+    "dtype": "torch.float16",
+    "device": "cuda:0",
+    "adapter_merged": true,
+    "data_file": "data/processed/val.jsonl",
+    "data_sha256": "9b217074273ab05b1f95b7ef5a17fad52c218fccced92d1fc6998130e11eb11e",
+    "git": "737a3c4",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.1",
+    "timing": {
+      "seconds": 33.867199182510376,
+      "n": 206,
+      "new_tokens": 3308
+    },
+    "gpu": "Tesla T4"
+  },
+  "metrics": {
+    "n": 206,
+    "valid_rate": 1.0,
+    "hit_max_rate": 0.0,
+    "hallucinated_id_rate": 0.0,
+    "accuracy": 0.7475728155339806,
+    "macro_f1": 0.443821122618591,
+    "per_class": {
+      "excluded": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2
+      },
+      "included": {
+        "precision": 0.8387096774193549,
+        "recall": 0.7428571428571429,
+        "f1": 0.787878787878788,
+        "support": 35
+      },
+      "not applicable": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "support": 12
+      },
+      "not enough information": {
+        "precision": 0.6571428571428571,
+        "recall": 0.4339622641509434,
+        "f1": 0.5227272727272727,
+        "support": 53
+      },
+      "not excluded": {
+        "precision": 0.7426470588235294,
+        "recall": 1.0,
+        "f1": 0.8523206751054853,
+        "support": 101
+      },
+      "not included": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      }
+    },
+    "pred_label_counts": {
+      "not enough information": 35,
+      "included": 31,
+      "not excluded": 136,
+      "not applicable": 4
+    },
+    "inclusion_n": 66,
+    "inclusion_accuracy": 0.7424242424242424,
+    "inclusion_macro_f1": 0.3824535679374389,
+    "exclusion_n": 140,
+    "exclusion_accuracy": 0.75,
+    "exclusion_macro_f1": 0.3464135021097047,
+    "evidence_all": {
+      "n": 206,
+      "micro_p": 0.5149253731343284,
+      "micro_r": 0.6,
+      "micro_f1": 0.5542168674698796,
+      "macro_p": 0.724086916319926,
+      "macro_r": 0.8402103559870551,
+      "macro_f1": 0.7212205270457698
+    },
+    "evidence_nonempty_gold": {
+      "n": 90,
+      "micro_p": 0.6764705882352942,
+      "micro_r": 0.6,
+      "micro_f1": 0.6359447004608295,
+      "macro_p": 0.612910052910053,
+      "macro_r": 0.6342592592592593,
+      "macro_f1": 0.6063492063492063
+    }
+  }
+}

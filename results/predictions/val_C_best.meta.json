@@ -1,0 +1,30 @@
+{
+  "tag": "C_best",
+  "split": "val",
+  "n": 206,
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "mode": "ft",
+  "adapter": "/content/drive/MyDrive/genai_a2/runs/C/best",
+  "decoding": {
+    "strategy": "greedy",
+    "max_new_tokens": 64,
+    "repetition_penalty": 1.0,
+    "batch_size": 8,
+    "padding": "left",
+    "eos": "<|im_end|>"
+  },
+  "dtype": "torch.float16",
+  "device": "cuda:0",
+  "adapter_merged": true,
+  "data_file": "data/processed/val.jsonl",
+  "data_sha256": "9b217074273ab05b1f95b7ef5a17fad52c218fccced92d1fc6998130e11eb11e",
+  "git": "737a3c4",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "timing": {
+    "seconds": 38.450170040130615,
+    "n": 206,
+    "new_tokens": 3443
+  },
+  "gpu": "Tesla T4"
+}

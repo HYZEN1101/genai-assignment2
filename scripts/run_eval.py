@@ -33,6 +33,24 @@ def sha256_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
+def verify_freeze(split: str, data_path: Path, adapter: str | None) -> dict | None:
+    """Test split only: FREEZE.json (scripts/freeze.py) must exist and match the data and adapter weights."""
+    if split != "test":
+        return None
+    fp = ROOT / "results" / "logs" / "FREEZE.json"
+    if not fp.exists():
+        sys.exit("REFUSED: results/logs/FREEZE.json missing. Run scripts/freeze.py (after committing) before the test run.")
+    fr = json.loads(fp.read_text())
+    if fr["test_data_sha256"] != sha256_file(data_path):
+        sys.exit("REFUSED: test.jsonl changed since the freeze.")
+    if adapter:
+        ad = Path(adapter) if Path(adapter).is_absolute() else ROOT / adapter
+        w = ad / "adapter_model.safetensors"
+        if not w.exists() or sha256_file(w) != fr["adapter_weights_sha256"]:
+            sys.exit("REFUSED: adapter weights differ from the frozen adapter (use the Hub-downloaded weights/adapter).")
+    return fr
+
+
 def git_hash() -> str:
     try:
         return subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
@@ -74,6 +92,7 @@ def main() -> None:
     records = [json.loads(l) for l in open(data_path, encoding="utf-8") if l.strip()]
     if a.limit:
         records = records[: a.limit]
+    freeze = verify_freeze(a.split, data_path, a.adapter)
     print(f"[eval] split={a.split} n={len(records)} model={a.model} adapter={a.adapter} bs={bs} max_new_tokens={mnt}")
 
     t0 = time.time()
@@ -95,7 +114,7 @@ def main() -> None:
         "dtype": str(next(model.parameters()).dtype), "device": str(next(model.parameters()).device),
         "adapter_merged": bool(a.adapter), "data_file": str(data_path.relative_to(ROOT)), "data_sha256": sha256_file(data_path),
         "git": git_hash(), "torch": torch.__version__, "transformers": transformers.__version__,
-        "timing": timing, "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+        "freeze_commit": freeze["git_commit"] if freeze else None, "timing": timing, "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
     }
     (out.with_suffix(".meta.json")).write_text(json.dumps(meta, indent=2))
     tab = ROOT / "results" / "tables"

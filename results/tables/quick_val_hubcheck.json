@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "tag": "hubcheck",
+    "split": "val",
+    "n": 16,
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "mode": "ft",
+    "adapter": "weights/adapter",
+    "decoding": {
+      "strategy": "greedy",
+      "max_new_tokens": 64,
+      "repetition_penalty": 1.0,
+      "batch_size": 8,
+      "padding": "left",
+      "eos": "<|im_end|>"
+    },
+    "dtype": "torch.float16",
+    "device": "cuda:0",
+    "adapter_merged": true,
+    "data_file": "data/processed/val.jsonl",
+    "data_sha256": "9b217074273ab05b1f95b7ef5a17fad52c218fccced92d1fc6998130e11eb11e",
+    "git": "737a3c4",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.1",
+    "timing": {
+      "seconds": 2.7649223804473877,
+      "n": 16,
+      "new_tokens": 242
+    },
+    "gpu": "Tesla T4"
+  },
+  "metrics": {
+    "n": 16,
+    "valid_rate": 1.0,
+    "hit_max_rate": 0.0,
+    "hallucinated_id_rate": 0.0,
+    "accuracy": 0.875,
+    "macro_f1": 0.7999999999999999,
+    "per_class": {
+      "included": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 4
+      },
+      "not enough information": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "support": 3
+      },
+      "not excluded": {
+        "precision": 0.8181818181818182,
+        "recall": 1.0,
+        "f1": 0.9,
+        "support": 9
+      }
+    },
+    "pred_label_counts": {
+      "not enough information": 1,
+      "included": 4,
+      "not excluded": 11
+    },
+    "inclusion_n": 5,
+    "inclusion_accuracy": 1.0,
+    "inclusion_macro_f1": 1.0,
+    "exclusion_n": 11,
+    "exclusion_accuracy": 0.8181818181818182,
+    "exclusion_macro_f1": 0.45,
+    "evidence_all": {
+      "n": 16,
+      "micro_p": 0.8,
+      "micro_r": 0.3333333333333333,
+      "micro_f1": 0.47058823529411764,
+      "macro_p": 0.6875,
+      "macro_r": 0.75,
+      "macro_f1": 0.6875
+    },
+    "evidence_nonempty_gold": {
+      "n": 8,
+      "micro_p": 1.0,
+      "micro_r": 0.3333333333333333,
+      "micro_f1": 0.5,
+      "macro_p": 0.5,
+      "macro_r": 0.5,
+      "macro_f1": 0.5
+    }
+  }
+}

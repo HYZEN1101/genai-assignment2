@@ -1,0 +1,34 @@
+\begin{tabular}{llrrrrrr}
+\toprule
+model & scope & label & precision & recall & f1 & support & n\_pred \\
+\midrule
+ft & overall & included & 0.844 & 0.771 & 0.806 & 35 & 32 \\
+ft & overall & not included & 0.000 & 0.000 & 0.000 & 3 & 1 \\
+ft & overall & excluded & 1.000 & 0.500 & 0.667 & 2 & 1 \\
+ft & overall & not excluded & 0.807 & 0.950 & 0.873 & 101 & 119 \\
+ft & overall & not enough information & 0.698 & 0.566 & 0.625 & 53 & 43 \\
+ft & overall & not applicable & 0.500 & 0.417 & 0.455 & 12 & 10 \\
+ft & inclusion & included & 0.844 & 0.771 & 0.806 & 35 & 32 \\
+ft & inclusion & not included & 0.000 & 0.000 & 0.000 & 3 & 1 \\
+ft & inclusion & not enough information & 0.697 & 0.852 & 0.767 & 27 & 33 \\
+ft & inclusion & not applicable & 0.000 & 0.000 & 0.000 & 1 & 0 \\
+ft & exclusion & excluded & 1.000 & 0.500 & 0.667 & 2 & 1 \\
+ft & exclusion & not excluded & 0.807 & 0.950 & 0.873 & 101 & 119 \\
+ft & exclusion & not enough information & 0.700 & 0.269 & 0.389 & 26 & 10 \\
+ft & exclusion & not applicable & 0.500 & 0.455 & 0.476 & 11 & 10 \\
+base & overall & included & 0.750 & 0.257 & 0.383 & 35 & 12 \\
+base & overall & not included & 0.000 & 0.000 & 0.000 & 3 & 1 \\
+base & overall & excluded & 0.167 & 1.000 & 0.286 & 2 & 12 \\
+base & overall & not excluded & 0.000 & 0.000 & 0.000 & 101 & 2 \\
+base & overall & not enough information & 0.000 & 0.000 & 0.000 & 53 & 0 \\
+base & overall & not applicable & 0.062 & 0.917 & 0.116 & 12 & 178 \\
+base & inclusion & included & 0.750 & 0.257 & 0.383 & 35 & 12 \\
+base & inclusion & not included & 0.000 & 0.000 & 0.000 & 3 & 1 \\
+base & inclusion & not enough information & 0.000 & 0.000 & 0.000 & 27 & 0 \\
+base & inclusion & not applicable & 0.019 & 1.000 & 0.037 & 1 & 53 \\
+base & exclusion & excluded & 0.167 & 1.000 & 0.286 & 2 & 12 \\
+base & exclusion & not excluded & 0.000 & 0.000 & 0.000 & 101 & 2 \\
+base & exclusion & not enough information & 0.000 & 0.000 & 0.000 & 26 & 0 \\
+base & exclusion & not applicable & 0.080 & 0.909 & 0.147 & 11 & 125 \\
+\bottomrule
+\end{tabular}

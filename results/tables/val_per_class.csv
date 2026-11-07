@@ -1,0 +1,29 @@
+model,scope,label,precision,recall,f1,support,n_pred
+ft,overall,included,0.84375,0.7714285714285715,0.8059701492537314,35,32
+ft,overall,not included,0.0,0.0,0.0,3,1
+ft,overall,excluded,1.0,0.5,0.6666666666666666,2,1
+ft,overall,not excluded,0.8067226890756303,0.9504950495049505,0.8727272727272728,101,119
+ft,overall,not enough information,0.6976744186046512,0.5660377358490566,0.625,53,43
+ft,overall,not applicable,0.5,0.4166666666666667,0.45454545454545453,12,10
+ft,inclusion,included,0.84375,0.7714285714285715,0.8059701492537314,35,32
+ft,inclusion,not included,0.0,0.0,0.0,3,1
+ft,inclusion,not enough information,0.696969696969697,0.8518518518518519,0.7666666666666667,27,33
+ft,inclusion,not applicable,0.0,0.0,0.0,1,0
+ft,exclusion,excluded,1.0,0.5,0.6666666666666666,2,1
+ft,exclusion,not excluded,0.8067226890756303,0.9504950495049505,0.8727272727272728,101,119
+ft,exclusion,not enough information,0.7,0.2692307692307692,0.3888888888888889,26,10
+ft,exclusion,not applicable,0.5,0.45454545454545453,0.47619047619047616,11,10
+base,overall,included,0.75,0.2571428571428571,0.3829787234042553,35,12
+base,overall,not included,0.0,0.0,0.0,3,1
+base,overall,excluded,0.16666666666666666,1.0,0.2857142857142857,2,12
+base,overall,not excluded,0.0,0.0,0.0,101,2
+base,overall,not enough information,0.0,0.0,0.0,53,0
+base,overall,not applicable,0.06179775280898876,0.9166666666666666,0.11578947368421053,12,178
+base,inclusion,included,0.75,0.2571428571428571,0.3829787234042553,35,12
+base,inclusion,not included,0.0,0.0,0.0,3,1
+base,inclusion,not enough information,0.0,0.0,0.0,27,0
+base,inclusion,not applicable,0.018867924528301886,1.0,0.037037037037037035,1,53
+base,exclusion,excluded,0.16666666666666666,1.0,0.2857142857142857,2,12
+base,exclusion,not excluded,0.0,0.0,0.0,101,2
+base,exclusion,not enough information,0.0,0.0,0.0,26,0
+base,exclusion,not applicable,0.08,0.9090909090909091,0.14705882352941177,11,125

@@ -2,4 +2,4 @@
 model_id: Qwen/Qwen2.5-1.5B-Instruct
 max_new_tokens: 64      # longest gold target = 38 tokens (P1); P2 checks hit_max_rate on val
 batch_size: 8
-adapter_repo: TBD       # Hugging Face repo id of the final adapter, set at the end of P2
+adapter_repo: hyzenOG/trialmatch-qwen2.5-1.5b-lora
