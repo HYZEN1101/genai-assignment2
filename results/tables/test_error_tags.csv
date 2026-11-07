@@ -1,0 +1,14 @@
+tag,count,description
+invalid_output,0,output not parseable / label outside the allowed set
+polarity_flip,0,"gold and predicted labels are the two opposite decisions (included<->not included, excluded<->not excluded)"
+contradictory_evidence,0,polarity flip while citing at least one gold evidence sentence (same sentence read the opposite way)
+false_nei,14,gold is a decision but the model says 'not enough information' (over-cautious)
+false_confident,26,gold is 'not enough information' but the model commits to a decision (unsupported / missing-information case)
+na_mistake,11,gold or prediction is 'not applicable' and the label is wrong
+rare_class_missed,7,gold is 'not included' or 'excluded' (rare classes) and the label is wrong
+evidence_missing,18,"gold evidence non-empty, model cites nothing"
+evidence_spurious,18,"gold evidence empty, model cites sentences"
+evidence_wrong_ids,1,both non-empty but no overlap
+evidence_partial,15,"both non-empty, partial overlap"
+hallucinated_id,0,cites a sentence id that does not exist in the note
+truncation_related,0,a gold evidence sentence was removed by prompt truncation

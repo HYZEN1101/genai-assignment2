@@ -1,0 +1,15 @@
+FREEZE (written before the single test run; nothing was tuned on test)
+frozen_utc: 2026-11-07T22:10:18+00:00
+git_commit: 5f2cf160c2a766b06713afdd46f04413f85c9d37
+git_dirty_tracked: False
+test_data_sha256: b996538bb64a35485c7e9204948a94ff6fdac1a35607c5a3e5e5af681a0d701d
+n_test_records: 206
+adapter_dir: weights/adapter
+adapter_weights_sha256: 6edf003f9307ee69b5af5a007db8944b153859418032a2361dbf08c6475dd051
+adapter_config_sha256: 3685ffcdb9e2b194cb02dd0dc6dd6645397267d99f2e3fdc09708f6351012f04
+eval_config: {'model_id': 'Qwen/Qwen2.5-1.5B-Instruct', 'max_new_tokens': 64, 'batch_size': 8, 'adapter_repo': 'hyzenOG/trialmatch-qwen2.5-1.5b-lora'}
+decoding: {'strategy': 'greedy', 'max_new_tokens': 64, 'repetition_penalty': 1.0, 'batch_size': 8, 'padding': 'left'}
+split_manifest_sha256: 522e34f0b910102502d86e923e23204b28db89d8c87b4ed7aedadca69901b5e8
+selected_checkpoint: run C, epoch_5 (chosen on VALIDATION macro-F1 in Phase 2)
+torch: 2.14.1+cu130
+transformers: 5.22.1

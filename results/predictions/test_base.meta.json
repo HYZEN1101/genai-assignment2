@@ -1,0 +1,31 @@
+{
+  "tag": "test_base",
+  "split": "test",
+  "n": 206,
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "mode": "base",
+  "adapter": null,
+  "decoding": {
+    "strategy": "greedy",
+    "max_new_tokens": 64,
+    "repetition_penalty": 1.0,
+    "batch_size": 8,
+    "padding": "left",
+    "eos": "<|im_end|>"
+  },
+  "dtype": "torch.float16",
+  "device": "cuda:0",
+  "adapter_merged": false,
+  "data_file": "data/processed/test.jsonl",
+  "data_sha256": "b996538bb64a35485c7e9204948a94ff6fdac1a35607c5a3e5e5af681a0d701d",
+  "git": "5f2cf16",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "freeze_commit": "5f2cf160c2a766b06713afdd46f04413f85c9d37",
+  "timing": {
+    "seconds": 39.293681383132935,
+    "n": 206,
+    "new_tokens": 4062
+  },
+  "gpu": "Tesla T4"
+}
