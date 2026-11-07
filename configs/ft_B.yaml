@@ -1,0 +1,24 @@
+# Phase 2 run B: LoRA r=8 alpha=16 lr=2e-4 epochs=3 (chosen/compared on VALIDATION only)
+run_name: B
+model_id: Qwen/Qwen2.5-1.5B-Instruct
+train_file: data/processed/train.jsonl
+val_file: data/processed/val.jsonl
+out_dir: /content/drive/MyDrive/genai_a2/runs/B          # Drive: survives Colab disconnects; adapters never go to git
+seed: 42
+max_len: 1024
+epochs: 3
+micro_batch: 4
+grad_accum: 4            # effective batch 16 -> 38 optimizer steps per epoch (602 records)
+lr: 2e-4
+warmup_ratio: 0.1
+weight_decay: 0.0
+max_grad_norm: 1.0
+fp16: true
+gradient_checkpointing: true
+eval_every_steps: 19     # half an epoch (smoother val curve)
+save_every_epoch: true
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
