@@ -1,0 +1,25 @@
+{
+  "torch": "2.14.1+cpu",
+  "device": "cpu",
+  "gpu": "cpu",
+  "capability": null,
+  "args": {
+    "mode": "error",
+    "device": "cpu",
+    "dtype": "float16",
+    "lens": [
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "heads": 12,
+    "head_dim": 128,
+    "block": 128,
+    "warmup": 3,
+    "repeats": 10,
+    "no_causal": false
+  }
+}
