@@ -1,0 +1,12 @@
+{
+ "tag": "ft1.5B",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "adapter": "weights/adapter",
+ "torch": "2.14.1+cu130",
+ "device": "cuda:0",
+ "gpu": "Tesla T4",
+ "dtype": "torch.float16",
+ "warmup": 2,
+ "repeats": 5,
+ "weights_mb": 2953.40234375
+}

@@ -9,3 +9,4 @@ wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/kv_equiv.csv
 [ft1.5B/float16] L=   64 N=  16 equal=True first_div=-1 hf_equal=True max|dlogit|=0.05469 gap@div ref/kv=None/None
 [ft1.5B/float16] L=  256 N=  32 equal=True first_div=-1 hf_equal=False max|dlogit|=0.125 gap@div ref/kv=None/None
 [ft1.5B/float16] L=  512 N=  64 equal=True first_div=-1 hf_equal=False max|dlogit|=0.09766 gap@div ref/kv=None/None
+[ft1.5B/float16] L= 1024 N= 128 equal=True first_div=-1 hf_equal=False max|dlogit|=0.07422 gap@div ref/kv=None/None
