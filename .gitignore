@@ -1,18 +1,22 @@
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-*.egg-info/
-# large artifacts live on Hugging Face Hub / Drive, never in git
-*.safetensors
+
 *.bin
-*.pt
-*.gguf
-.env
 .DS_Store
+*.egg-info/
+.env
+*.gguf
+# large artifacts live on Hugging Face Hub / Drive, never in git
+.p4_zip_applied
+.p5_close_applied
+.p5_patch1_applied
+.p5_zip_applied
+*.pt
+*.pyc
+__pycache__/
+.pytest_cache/
 report/*.aux
 report/*.log
 report/*.out
-
-weights/
 runs/
+*.safetensors
+.venv/
+weights/
