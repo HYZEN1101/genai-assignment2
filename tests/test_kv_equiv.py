@@ -113,7 +113,7 @@ def test_wrong_position_ids_break_the_output(model):
     out = model(input_ids=nxt, attention_mask=torch.ones(1, 31, dtype=torch.long),
                 position_ids=torch.zeros(1, 1, dtype=torch.long),            # WRONG on purpose: true position is 30
                 past_key_values=cache, use_cache=True, logits_to_keep=1)
-    assert (out.logits[0, -1] - good).abs().max() > 1e-3
+    assert (out.logits[0, -1] - good).abs().max() > 1e-4          # fp32 noise here is ~1e-6; a wrong RoPE position moves logits ~1e-3 on this tiny random model
 
 
 def test_prefix_cache_reuse_matches_fresh(model):

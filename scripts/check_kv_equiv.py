@@ -43,13 +43,25 @@ def read_jsonl(p: Path) -> list[dict]:
 
 
 def hf_reference(model, tok, ids: torch.Tensor, n_new: int, eos_ids) -> list[int]:
-    """HF generate(), greedy, repetition_penalty=1.0 -- REFERENCE ONLY (never the deliverable)."""
-    from transformers import GenerationConfig
-    pad = tok.pad_token_id if tok.pad_token_id is not None else 0
-    gc = GenerationConfig(do_sample=False, max_new_tokens=n_new, min_new_tokens=0 if eos_ids else n_new,
-                          repetition_penalty=1.0, eos_token_id=eos_ids, pad_token_id=pad)
-    with torch.no_grad():
-        out = model.generate(input_ids=ids, attention_mask=torch.ones_like(ids), generation_config=gc)
+    """HF generate(), greedy -- REFERENCE ONLY (never the deliverable).
+
+    Qwen's shipped generation_config has repetition_penalty=1.05 (+ sampling flags). generate() treats a user value equal to the
+    library default (1.0) as "unset" and falls back to the MODEL's config, so passing repetition_penalty=1.0 is silently ignored.
+    We therefore neutralise the model's own generation_config for the duration of the call and restore it afterwards.
+    """
+    gc = model.generation_config
+    keep = {k: getattr(gc, k, None) for k in ("repetition_penalty", "eos_token_id", "pad_token_id", "do_sample", "temperature", "top_p", "top_k")}
+    try:
+        gc.repetition_penalty, gc.do_sample = 1.0, False
+        gc.temperature = gc.top_p = gc.top_k = None
+        gc.eos_token_id = list(eos_ids) if eos_ids else None
+        gc.pad_token_id = tok.pad_token_id if tok.pad_token_id is not None else 0
+        with torch.no_grad():
+            out = model.generate(input_ids=ids, attention_mask=torch.ones_like(ids), do_sample=False, max_new_tokens=n_new,
+                                 min_new_tokens=0 if eos_ids else n_new)
+    finally:
+        for k, v in keep.items():
+            setattr(gc, k, v)
     new = out[0, ids.shape[1]:].tolist()
     if eos_ids:
         for i, t in enumerate(new):
