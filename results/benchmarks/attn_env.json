@@ -4,9 +4,9 @@
   "gpu": "cpu",
   "capability": null,
   "args": {
-    "mode": "error",
+    "mode": "speed",
     "device": "cpu",
-    "dtype": "float16",
+    "dtype": "float32",
     "lens": [
       128,
       256,
@@ -18,8 +18,8 @@
     "heads": 12,
     "head_dim": 128,
     "block": 128,
-    "warmup": 3,
-    "repeats": 10,
+    "warmup": 1,
+    "repeats": 5,
     "no_causal": false
   }
 }

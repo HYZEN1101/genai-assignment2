@@ -1,0 +1,31 @@
+method,L,H,D,dtype,causal,device,status,ms_median,ms_mean,ms_std,peak_mb,score_mb_theory
+reference,128,12,128,float32,True,cpu,ok,6.897198999979537,8.291953999992074,2.3078116230115557,,0.75
+tiled_b128,128,12,128,float32,True,cpu,ok,9.953719999998611,12.426652000004879,4.64185765548567,,0.75
+sdpa_math,128,12,128,float32,True,cpu,ok,11.860482000003003,12.717148400002998,5.44214598630365,,0.75
+sdpa_efficient,128,12,128,float32,True,cpu,RuntimeError: mem-efficient backend is CUDA-only,,,,,0.0
+sdpa_flash,128,12,128,float32,True,cpu,RuntimeError: flash backend is CUDA-only,,,,,0.0
+reference,256,12,128,float32,True,cpu,ok,30.080943000001525,30.498753799997758,1.4645145081984867,,3.0
+tiled_b128,256,12,128,float32,True,cpu,ok,18.704325000015842,22.080711400008113,4.978131289169931,,0.75
+sdpa_math,256,12,128,float32,True,cpu,ok,65.23932900000773,63.95347880000486,27.768376669683388,,3.0
+sdpa_efficient,256,12,128,float32,True,cpu,RuntimeError: mem-efficient backend is CUDA-only,,,,,0.0
+sdpa_flash,256,12,128,float32,True,cpu,RuntimeError: flash backend is CUDA-only,,,,,0.0
+reference,512,12,128,float32,True,cpu,ok,252.67470699998285,210.16271240000037,82.71868442934161,,12.0
+tiled_b128,512,12,128,float32,True,cpu,ok,51.593355999983714,51.656793199998674,0.7168950780835603,,0.75
+sdpa_math,512,12,128,float32,True,cpu,ok,95.1837680000267,98.63072940001416,7.327999083611515,,12.0
+sdpa_efficient,512,12,128,float32,True,cpu,RuntimeError: mem-efficient backend is CUDA-only,,,,,0.0
+sdpa_flash,512,12,128,float32,True,cpu,RuntimeError: flash backend is CUDA-only,,,,,0.0
+reference,1024,12,128,float32,True,cpu,ok,547.9840980000006,529.090761599997,42.91008978412006,,48.0
+tiled_b128,1024,12,128,float32,True,cpu,ok,112.57985099999246,112.34850100000813,2.9793067417515346,,0.75
+sdpa_math,1024,12,128,float32,True,cpu,ok,233.52729100000147,284.47411380000744,65.61019151975499,,48.0
+sdpa_efficient,1024,12,128,float32,True,cpu,RuntimeError: mem-efficient backend is CUDA-only,,,,,0.0
+sdpa_flash,1024,12,128,float32,True,cpu,RuntimeError: flash backend is CUDA-only,,,,,0.0
+reference,2048,12,128,float32,True,cpu,ok,1436.075690999985,1611.0708206000027,322.8681757551702,,192.0
+tiled_b128,2048,12,128,float32,True,cpu,ok,623.1924029999902,576.335439799999,100.34391921122409,,0.75
+sdpa_math,2048,12,128,float32,True,cpu,ok,970.9083509999914,971.6623303999938,9.380698942712764,,192.0
+sdpa_efficient,2048,12,128,float32,True,cpu,RuntimeError: mem-efficient backend is CUDA-only,,,,,0.0
+sdpa_flash,2048,12,128,float32,True,cpu,RuntimeError: flash backend is CUDA-only,,,,,0.0
+reference,4096,12,128,float32,True,cpu,ok,6896.524620999998,6702.681719200001,636.9238871487935,,768.0
+tiled_b128,4096,12,128,float32,True,cpu,ok,1539.1095549999818,1578.161580599999,87.8964379219799,,0.75
+sdpa_math,4096,12,128,float32,True,cpu,ok,3988.3104020000246,4375.024410600008,556.5466430205553,,768.0
+sdpa_efficient,4096,12,128,float32,True,cpu,RuntimeError: mem-efficient backend is CUDA-only,,,,,0.0
+sdpa_flash,4096,12,128,float32,True,cpu,RuntimeError: flash backend is CUDA-only,,,,,0.0

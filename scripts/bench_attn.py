@@ -110,6 +110,16 @@ def peak_mem_mb(fn, args, device):
     return (torch.cuda.max_memory_allocated() - base) / 2**20
 
 
+def theory_score_mb(name: str, L: int, H: int, block: int) -> float:
+    """Size of ONE fp32 score matrix the method must hold at once (lower bound, B=1): H*L*L*4 B for methods that materialise
+    Lq x Lk; H*b*b*4 B for the tiled loop (one block at a time). Fused efficient/flash kernels keep scores in on-chip memory -> 0."""
+    if name in ("reference", "sdpa_math"):
+        return H * L * L * 4 / 2**20
+    if name.startswith("tiled"):
+        return H * min(block, L) ** 2 * 4 / 2**20
+    return 0.0
+
+
 def speed_table(device, dtype, lens, H, D, block, causal, warmup, repeats) -> list[dict]:
     rows = []
     for L in lens:
@@ -117,7 +127,8 @@ def speed_table(device, dtype, lens, H, D, block, causal, warmup, repeats) -> li
         q, k, v = (torch.randn(1, H, L, D, generator=g).to(device=device, dtype=dtype) for _ in range(3))
         for name, fn in methods(block).items():
             row = dict(method=name, L=L, H=H, D=D, dtype=str(dtype).split(".")[-1], causal=causal, device=device, status="ok",
-                       ms_median=float("nan"), ms_mean=float("nan"), ms_std=float("nan"), peak_mb=float("nan"))
+                       ms_median=float("nan"), ms_mean=float("nan"), ms_std=float("nan"), peak_mb=float("nan"),
+                       score_mb_theory=theory_score_mb(name, L, H, block))
             try:
                 if name == "sdpa_flash" and device == "cpu":
                     raise RuntimeError("flash backend is CUDA-only")
@@ -142,17 +153,19 @@ def plots(df):
     import matplotlib.pyplot as plt
     FIG.mkdir(parents=True, exist_ok=True)
     ok = df[df.status == "ok"]
-    for col, ylabel, fname in (("ms_median", "median time per call (ms)", "attn_time.png"), ("peak_mb", "peak extra memory (MiB)", "attn_mem.png")):
-        if ok[col].isna().all():
+    for col, ylabel, fname in (("ms_median", "median time per call (ms)", "attn_time.png"), ("peak_mb", "peak extra memory (MiB)", "attn_mem.png"),
+                               ("score_mb_theory", "score-matrix memory, theoretical (MiB)", "attn_mem_theory.png")):
+        if ok[col].isna().all() or (ok[col] <= 0).all():
             continue
         fig, ax = plt.subplots(figsize=(6, 4))
         for name, g in ok.groupby("method"):
             ax.plot(g.L, g[col], marker="o", label=name)
-        ax.set_xscale("log", base=2); ax.set_yscale("log"); ax.set_xlabel("sequence length L (Lq = Lk)"); ax.set_ylabel(ylabel)
+        ax.set_xscale("log", base=2); ax.set_yscale("log")   # zero values (fused kernels in the theory plot) are not drawn on a log axis
+        ax.set_xlabel("sequence length L (Lq = Lk)"); ax.set_ylabel(ylabel)
         ax.grid(alpha=.3); ax.legend(fontsize=8)
         ax.set_title(f"{df.device.iloc[0]} {df.dtype.iloc[0]} H={df.H.iloc[0]} D={df.D.iloc[0]} causal={df.causal.iloc[0]}")
-        fig.tight_layout(); fig.savefig(FIG / fname, dpi=150); plt.close(fig)
-        log("wrote", FIG / fname)
+        fig.tight_layout(); fig.savefig(FIG / fname.replace(".png", f"_{df.device.iloc[0]}.png"), dpi=150); plt.close(fig)
+        log("wrote", fname.replace(".png", f"_{df.device.iloc[0]}.png"))
 
 
 def main():
