@@ -38,3 +38,4 @@ skip L=1024 N=16 (already in kv_bench.csv)
 skip L=1024 N=64 (already in kv_bench.csv)
 skip L=1024 N=128 (already in kv_bench.csv)
 wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/kv_bench.csv
+wrote /content/drive/MyDrive/genai_a2/repo/results/figures/kv_time.png, /content/drive/MyDrive/genai_a2/repo/results/figures/kv_memory.png
