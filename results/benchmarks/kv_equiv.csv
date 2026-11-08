@@ -1,0 +1,6 @@
+dtype,equal,first_div,gap_kv_at_div,gap_ref_at_div,hf_generate_equal,logit_absdiff_step0,max_logit_absdiff_before_div,min_gap_ref,mismatches,n_equal_hf_vs_kv,n_equal_nocache_vs_kv,n_records,new_tokens,part,prompt_len,tag
+float16,True,-1,,,False,0.0,0.091796875,0.0625,,,,,16,length_combo,64,Qwen2.5-0.5B-Instruct
+float16,True,-1,,,False,0.0,0.09765625,0.171875,,,,,32,length_combo,256,Qwen2.5-0.5B-Instruct
+float16,True,-1,,,False,0.0,0.078125,1.296875,,,,,64,length_combo,512,Qwen2.5-0.5B-Instruct
+float16,True,-1,,,False,0.0,0.109375,0.015625,,,,,128,length_combo,1024,Qwen2.5-0.5B-Instruct
+float16,,,,,,,,,[],20,20,20,,task_records,,Qwen2.5-0.5B-Instruct

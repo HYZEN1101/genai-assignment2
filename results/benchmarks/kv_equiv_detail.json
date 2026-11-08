@@ -1,0 +1,71 @@
+[
+ {
+  "part": "length_combo",
+  "tag": "Qwen2.5-0.5B-Instruct",
+  "dtype": "float16",
+  "prompt_len": 64,
+  "new_tokens": 16,
+  "equal": true,
+  "first_div": -1,
+  "hf_generate_equal": false,
+  "max_logit_absdiff_before_div": 0.091796875,
+  "logit_absdiff_step0": 0.0,
+  "gap_ref_at_div": null,
+  "gap_kv_at_div": null,
+  "min_gap_ref": 0.0625
+ },
+ {
+  "part": "length_combo",
+  "tag": "Qwen2.5-0.5B-Instruct",
+  "dtype": "float16",
+  "prompt_len": 256,
+  "new_tokens": 32,
+  "equal": true,
+  "first_div": -1,
+  "hf_generate_equal": false,
+  "max_logit_absdiff_before_div": 0.09765625,
+  "logit_absdiff_step0": 0.0,
+  "gap_ref_at_div": null,
+  "gap_kv_at_div": null,
+  "min_gap_ref": 0.171875
+ },
+ {
+  "part": "length_combo",
+  "tag": "Qwen2.5-0.5B-Instruct",
+  "dtype": "float16",
+  "prompt_len": 512,
+  "new_tokens": 64,
+  "equal": true,
+  "first_div": -1,
+  "hf_generate_equal": false,
+  "max_logit_absdiff_before_div": 0.078125,
+  "logit_absdiff_step0": 0.0,
+  "gap_ref_at_div": null,
+  "gap_kv_at_div": null,
+  "min_gap_ref": 1.296875
+ },
+ {
+  "part": "length_combo",
+  "tag": "Qwen2.5-0.5B-Instruct",
+  "dtype": "float16",
+  "prompt_len": 1024,
+  "new_tokens": 128,
+  "equal": true,
+  "first_div": -1,
+  "hf_generate_equal": false,
+  "max_logit_absdiff_before_div": 0.109375,
+  "logit_absdiff_step0": 0.0,
+  "gap_ref_at_div": null,
+  "gap_kv_at_div": null,
+  "min_gap_ref": 0.015625
+ },
+ {
+  "part": "task_records",
+  "tag": "Qwen2.5-0.5B-Instruct",
+  "dtype": "float16",
+  "n_records": 20,
+  "n_equal_nocache_vs_kv": 20,
+  "n_equal_hf_vs_kv": 20,
+  "mismatches": "[]"
+ }
+]
