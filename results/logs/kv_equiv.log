@@ -10,3 +10,15 @@ wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/kv_equiv.csv
 [ft1.5B/float16] L=  256 N=  32 equal=True first_div=-1 hf_equal=False max|dlogit|=0.125 gap@div ref/kv=None/None
 [ft1.5B/float16] L=  512 N=  64 equal=True first_div=-1 hf_equal=False max|dlogit|=0.09766 gap@div ref/kv=None/None
 [ft1.5B/float16] L= 1024 N= 128 equal=True first_div=-1 hf_equal=False max|dlogit|=0.07422 gap@div ref/kv=None/None
+[ft1.5B/float16] task records: kv==nocache 20/20, kv==HF generate 20/20, mismatches []
+fp16 mismatching combos: none; reloading in fp32 for the recheck
+[ft1.5B/float32] L=   64 N=  16 equal=True first_div=-1 hf_equal=True max|dlogit|=5.305e-05 gap@div ref/kv=None/None
+[ft1.5B/float32] L=  256 N=  32 equal=True first_div=-1 hf_equal=False max|dlogit|=0.0006347 gap@div ref/kv=None/None
+[ft1.5B/float32] L=  512 N=  64 equal=True first_div=-1 hf_equal=False max|dlogit|=0.0001726 gap@div ref/kv=None/None
+== Qwen2.5-0.5B-Instruct on cuda, dtype float16, torch 2.14.1+cu130
+[Qwen2.5-0.5B-Instruct/float16] L=   64 N=  16 equal=True first_div=-1 hf_equal=False max|dlogit|=0.0918 gap@div ref/kv=None/None
+[Qwen2.5-0.5B-Instruct/float16] L=  256 N=  32 equal=True first_div=-1 hf_equal=False max|dlogit|=0.09766 gap@div ref/kv=None/None
+[Qwen2.5-0.5B-Instruct/float16] L=  512 N=  64 equal=True first_div=-1 hf_equal=False max|dlogit|=0.07812 gap@div ref/kv=None/None
+[Qwen2.5-0.5B-Instruct/float16] L= 1024 N= 128 equal=True first_div=-1 hf_equal=False max|dlogit|=0.1094 gap@div ref/kv=None/None
+[Qwen2.5-0.5B-Instruct/float16] task records: kv==nocache 20/20, kv==HF generate 20/20, mismatches []
+wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/kv_equiv.csv
