@@ -9,6 +9,8 @@
 .p5_close_applied
 .p5_patch1_applied
 .p5_zip_applied
+.p6_close_applied
+.p6_zip_applied
 *.pt
 *.pyc
 __pycache__/

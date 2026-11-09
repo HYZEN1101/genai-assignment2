@@ -1,0 +1,24 @@
+# Phase 6 OPTIONAL task-tuned DRAFT: run-C recipe on the 0.5B model (no checkpoint selection; use `last`)
+run_name: D
+model_id: Qwen/Qwen2.5-0.5B-Instruct
+train_file: data/processed/train.jsonl
+val_file: data/processed/val.jsonl
+out_dir: /content/drive/MyDrive/genai_a2/runs/D
+seed: 42
+max_len: 1024
+epochs: 5
+micro_batch: 4
+grad_accum: 4            # effective batch 16 -> 38 optimizer steps per epoch (602 records)
+lr: 1e-4
+warmup_ratio: 0.1
+weight_decay: 0.0
+max_grad_norm: 1.0
+fp16: true
+gradient_checkpointing: true
+eval_every_steps: 19     # half an epoch (smoother val curve)
+save_every_epoch: true
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]

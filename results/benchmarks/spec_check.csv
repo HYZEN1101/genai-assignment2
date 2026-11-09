@@ -1,0 +1,7 @@
+tag,workload,item,k,prompt_len,new_tokens,equal,first_div,acceptance_rate,rounds,dtype
+cpu_ft1.5B+base0.5B,task,val0,2,379,16,True,-1,0.7142857142857143,7,float32
+cpu_ft1.5B+base0.5B,task,val0,4,379,16,True,-1,0.6875,4,float32
+cpu_ft1.5B+base0.5B,task,val1,2,358,15,True,-1,0.8333333333333334,6,float32
+cpu_ft1.5B+base0.5B,task,val1,4,358,15,True,-1,0.65,5,float32
+cpu_ft1.5B+base0.5B,task,val2,2,364,15,True,-1,0.8333333333333334,6,float32
+cpu_ft1.5B+base0.5B,task,val2,4,364,15,True,-1,0.65,5,float32

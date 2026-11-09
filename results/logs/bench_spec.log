@@ -1,0 +1,16 @@
+env {'tag': 'ft1.5B+base0.5B', 'target': 'Qwen/Qwen2.5-1.5B-Instruct', 'target_adapter': 'weights/adapter', 'draft': 'Qwen/Qwen2.5-0.5B-Instruct', 'draft_adapter': None, 'torch': '2.14.1+cpu', 'device': 'cpu', 'gpu': 'cpu', 'dtype': 'torch.float32', 'vocab_check': {'target_vocab': 151936, 'draft_vocab': 151936, 'equal': True}, 'tokenizers_identical': True, 'target_params': 1543714304, 'draft_params': 494032768, 'weights_mb_both': None, 'warmup': 1, 'repeats': 3, 'ks': [1, 2, 4, 8]}
+env {'tag': 'cpu_ft1.5B+base0.5B', 'target': 'Qwen/Qwen2.5-1.5B-Instruct', 'target_adapter': 'weights/adapter', 'draft': 'Qwen/Qwen2.5-0.5B-Instruct', 'draft_adapter': None, 'torch': '2.14.1+cpu', 'device': 'cpu', 'gpu': 'cpu', 'dtype': 'torch.float32', 'vocab_check': {'target_vocab': 151936, 'draft_vocab': 151936, 'equal': True}, 'tokenizers_identical': True, 'target_params': 1543714304, 'draft_params': 494032768, 'weights_mb_both': None, 'warmup': 1, 'repeats': 3, 'ks': [2, 4]}
+[check] val0    k=2 equal=True acc=0.71 rounds=7
+[check] val0    k=4 equal=True acc=0.69 rounds=4
+[check] val1    k=2 equal=True acc=0.83 rounds=6
+env {'tag': 'cpu_ft1.5B+base0.5B', 'target': 'Qwen/Qwen2.5-1.5B-Instruct', 'target_adapter': 'weights/adapter', 'draft': 'Qwen/Qwen2.5-0.5B-Instruct', 'draft_adapter': None, 'torch': '2.14.1+cpu', 'device': 'cpu', 'gpu': 'cpu', 'dtype': 'torch.float32', 'vocab_check': {'target_vocab': 151936, 'draft_vocab': 151936, 'equal': True}, 'tokenizers_identical': True, 'target_params': 1543714304, 'draft_params': 494032768, 'weights_mb_both': None, 'warmup': 1, 'repeats': 3, 'ks': [2, 4]}
+[check] val1    k=4 equal=True acc=0.65 rounds=5
+[check] val2    k=2 equal=True acc=0.83 rounds=6
+[check] val2    k=4 equal=True acc=0.65 rounds=5
+[check] done, 0 mismatching (item,k) pairs this session -> /content/drive/MyDrive/genai_a2/repo/results/benchmarks/spec_check.csv
+env {'tag': 'cpu_ft1.5B+base0.5B', 'target': 'Qwen/Qwen2.5-1.5B-Instruct', 'target_adapter': 'weights/adapter', 'draft': 'Qwen/Qwen2.5-0.5B-Instruct', 'draft_adapter': None, 'torch': '2.14.1+cpu', 'device': 'cpu', 'gpu': 'cpu', 'dtype': 'torch.float32', 'vocab_check': {'target_vocab': 151936, 'draft_vocab': 151936, 'equal': True}, 'tokenizers_identical': True, 'target_params': 1543714304, 'draft_params': 494032768, 'weights_mb_both': None, 'warmup': 0, 'repeats': 1, 'ks': [2, 4]}
+val0    k=2 eq=True acc=0.71 tok/tgt-fwd=2.00 | ms greedy/spec 29817/41672 | speedup 0.72x | peak above weights MB nan/nan
+val0    k=4 eq=True acc=0.69 tok/tgt-fwd=3.20 | ms greedy/spec 30767/39139 | speedup 0.79x | peak above weights MB nan/nan
+val1    k=2 eq=True acc=0.83 tok/tgt-fwd=2.14 | ms greedy/spec 29980/38835 | speedup 0.77x | peak above weights MB nan/nan
+val1    k=4 eq=True acc=0.65 tok/tgt-fwd=2.50 | ms greedy/spec 30304/40522 | speedup 0.75x | peak above weights MB nan/nan
+wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/spec_bench.csv

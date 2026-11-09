@@ -1,0 +1,1 @@
+P6 close: speculative decoder, 43 tests, CPU equality + latency (partial), handoff, state, notes, D25-D27

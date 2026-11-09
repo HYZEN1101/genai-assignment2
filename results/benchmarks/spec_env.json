@@ -1,0 +1,26 @@
+{
+ "tag": "cpu_ft1.5B+base0.5B",
+ "target": "Qwen/Qwen2.5-1.5B-Instruct",
+ "target_adapter": "weights/adapter",
+ "draft": "Qwen/Qwen2.5-0.5B-Instruct",
+ "draft_adapter": null,
+ "torch": "2.14.1+cpu",
+ "device": "cpu",
+ "gpu": "cpu",
+ "dtype": "torch.float32",
+ "vocab_check": {
+  "target_vocab": 151936,
+  "draft_vocab": 151936,
+  "equal": true
+ },
+ "tokenizers_identical": true,
+ "target_params": 1543714304,
+ "draft_params": 494032768,
+ "weights_mb_both": null,
+ "warmup": 0,
+ "repeats": 1,
+ "ks": [
+  2,
+  4
+ ]
+}

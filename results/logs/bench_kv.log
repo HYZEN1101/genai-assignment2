@@ -39,3 +39,14 @@ skip L=1024 N=64 (already in kv_bench.csv)
 skip L=1024 N=128 (already in kv_bench.csv)
 wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/kv_bench.csv
 wrote /content/drive/MyDrive/genai_a2/repo/results/figures/kv_time.png, /content/drive/MyDrive/genai_a2/repo/results/figures/kv_memory.png
+env {'tag': 'ft1.5B', 'model': 'Qwen/Qwen2.5-1.5B-Instruct', 'adapter': 'weights/adapter', 'torch': '2.14.1+cu130', 'device': 'cuda:0', 'gpu': 'Tesla T4', 'dtype': 'torch.float16', 'warmup': 2, 'repeats': 5, 'weights_mb': 2953.40234375}
+skip L=128 N=16 (already in kv_bench.csv)
+skip L=128 N=64 (already in kv_bench.csv)
+skip L=128 N=128 (already in kv_bench.csv)
+skip L=512 N=16 (already in kv_bench.csv)
+skip L=512 N=64 (already in kv_bench.csv)
+skip L=512 N=128 (already in kv_bench.csv)
+skip L=1024 N=16 (already in kv_bench.csv)
+skip L=1024 N=64 (already in kv_bench.csv)
+skip L=1024 N=128 (already in kv_bench.csv)
+wrote /content/drive/MyDrive/genai_a2/repo/results/benchmarks/kv_bench.csv
