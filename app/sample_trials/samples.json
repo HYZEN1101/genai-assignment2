@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ra_methotrexate",
+    "title": "Sample 1 - rheumatoid arthritis patient vs. a joint-pain trial (synthetic)",
+    "note": "0. A 52-year-old woman presents with swelling and pain in both wrists and knees for six months.\n1. She has long-standing rheumatoid arthritis and takes methotrexate and prednisone 10 mg daily.\n2. She has no history of cancer.\n3. Vital signs are stable.\n4. The patient is willing to participate in the trial.",
+    "inclusion": ["Adults with joint pain"],
+    "exclusion": ["History of chronic systemic autoimmune disorders such as rheumatoid arthritis", "Concurrent use of systemic immunosuppressive therapy or long-term corticosteroids", "History of malignant neoplasm"]
+  },
+  {
+    "id": "copd_missing_info",
+    "title": "Sample 2 - short note with missing information (synthetic)",
+    "note": "0. A 67-year-old man presents with a three-day history of productive cough and shortness of breath.\n1. He has smoked one pack of cigarettes daily for 40 years.\n2. On examination he has diffuse wheezing and oxygen saturation of 91% on room air.",
+    "inclusion": ["Age 40 years or older", "Diagnosis of chronic obstructive pulmonary disease confirmed by spirometry", "Current or former smoker with at least 10 pack-years"],
+    "exclusion": ["Currently pregnant or breastfeeding", "Participation in another interventional trial within 30 days", "Known allergy to inhaled corticosteroids"]
+  },
+  {
+    "id": "t2dm_mixed",
+    "title": "Sample 3 - diabetes trial with an inapplicable and a contradicted criterion (synthetic)",
+    "note": "0. A 45-year-old man has had type 2 diabetes mellitus for eight years.\n1. His most recent HbA1c was 6.4% on metformin alone.\n2. He has never had a myocardial infarction or stroke.\n3. Creatinine clearance was measured at 45 mL/min last month.\n4. He drinks alcohol rarely and does not smoke.",
+    "inclusion": ["Diagnosis of type 2 diabetes mellitus", "HbA1c of 7.5% or higher despite metformin therapy", "Women of childbearing potential must use effective contraception"],
+    "exclusion": ["Estimated creatinine clearance below 30 mL/min", "History of myocardial infarction"]
+  }
+]

@@ -1,4 +1,4 @@
-"""Download the released LoRA adapter into weights/adapter (works logged-out if the repo is public).
+﻿"""Download the released LoRA adapter into weights/adapter (works logged-out if the repo is public).
 
   python scripts/download_weights.py [--repo-id user/name] [--out weights/adapter]
 Default repo id: adapter_repo in configs/eval.yaml.
@@ -19,7 +19,7 @@ def main() -> None:
     ap.add_argument("--repo-id", default=None)
     ap.add_argument("--out", default=str(ROOT / "weights" / "adapter"))
     a = ap.parse_args()
-    repo = a.repo_id or yaml.safe_load(open(ROOT / "configs" / "eval.yaml"))["adapter_repo"]
+    repo = a.repo_id or yaml.safe_load(open(ROOT / "configs" / "eval.yaml", encoding="utf-8"))["adapter_repo"]
     if not repo or repo == "TBD":
         raise SystemExit("no adapter repo id: set adapter_repo in configs/eval.yaml or pass --repo-id")
     path = snapshot_download(repo_id=repo, local_dir=a.out)

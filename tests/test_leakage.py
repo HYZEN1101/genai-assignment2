@@ -1,4 +1,4 @@
-import json
+﻿import json
 import pytest
 from trialmatch.data.load import REPO_ROOT, RAW_CACHE
 from trialmatch.data.preprocess import build_records
@@ -83,7 +83,7 @@ def test_real_processed_files_are_clean_and_disjoint():
     expl = {e for e in raw.gpt4_explanation.dropna() if len(e) >= 30}
     seen = {}
     for sp in ("train", "val", "test"):
-        for line in open(REAL / f"{sp}.jsonl"):
+        for line in open(REAL / f"{sp}.jsonl", encoding="utf-8"):
             r = json.loads(line)
             assert_no_gpt4_keys(r)
             allowed_input = " ".join(s["text"] for s in r["patient_sentences"]) + " " + r["criterion_text"]
